@@ -30,6 +30,7 @@
 
 ```bash
 $ npm install
+rename docker.env-template to docker.env and set configuration data
 ```
 
 ## Running the app
