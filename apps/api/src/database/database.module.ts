@@ -15,6 +15,7 @@ import { User } from '../users/user.model';
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
         models: [User],
+        autoLoadModels: true,
       }),
       inject: [ConfigService],
     }),
