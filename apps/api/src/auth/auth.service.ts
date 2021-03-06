@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { UserMapper } from '../users/user.mapper';
-import { CreateAuthDto } from './dto/create-auth.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { GetSafeUserDto } from '../users/dto/get-safe-user.dto';
@@ -14,16 +13,11 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(
-    createAuthDto: CreateAuthDto,
-  ): Promise<GetSafeUserDto | null> {
-    const user = await this.usersService.findOneByEmail(createAuthDto.email);
+  async validateUser(email, password): Promise<GetSafeUserDto | null> {
+    const user = await this.usersService.findOneByEmail(email);
 
-    if (user && user.password === createAuthDto.password) {
-      const isPasswordCorrect = await bcrypt.compare(
-        createAuthDto.password,
-        user.password,
-      );
+    if (user) {
+      const isPasswordCorrect = await bcrypt.compare(password, user.password);
       if (isPasswordCorrect) {
         return UserMapper.toResponse(user);
       }
