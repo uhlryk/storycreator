@@ -1,28 +1,38 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
 import { UsersService } from './users.service';
-import { ResponseUserDto } from './dto/response-user.dto';
+import { GetSafeUserDto } from './dto/get-safe-user.dto';
 import { UserMapper } from './user.mapper';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('users')
+@UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  async create(@Body() createUserDto: CreateUserDto): Promise<ResponseUserDto> {
+  async create(@Body() createUserDto: CreateUserDto): Promise<GetSafeUserDto> {
     const user = await this.usersService.create(createUserDto);
     return UserMapper.toResponse(user);
   }
 
   @Get()
-  async findAll(): Promise<ResponseUserDto[]> {
+  async findAll(): Promise<GetSafeUserDto[]> {
     const list: User[] = await this.usersService.findAll();
     return list.map((user: User) => UserMapper.toResponse(user));
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<ResponseUserDto> {
+  async findOne(@Param('id') id: string): Promise<GetSafeUserDto> {
     const user = await this.usersService.findOne(id);
     return UserMapper.toResponse(user);
   }
