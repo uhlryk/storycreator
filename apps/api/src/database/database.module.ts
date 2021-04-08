@@ -10,7 +10,7 @@ import { User } from '../users/user.model';
       useFactory: (configService: ConfigService) => ({
         dialect: 'postgres',
         host: configService.get('POSTGRES_HOST'),
-        port: 5432,
+        port: configService.get('POSTGRES_PORT'),
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),

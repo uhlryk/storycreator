@@ -14,6 +14,12 @@ $ npm install
 ```bash
 $ npm run start:docker
 ```
+
+- pgadmin
+open in browser 
+
+http://localhost:8080/
+
 - //TODO: update this] production mode
 ```bash
 $ npm run start:prod
