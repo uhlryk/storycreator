@@ -1,42 +1,36 @@
-//Initial request
-GET http://localhost:3000/  HTTP/1.1
-
+@hostname = localhost:3000
 ###
-
 //AUTH MODULE
-
 ###
 //sign in
+# @name login
 POST /auth/login  HTTP/1.1
-Host: localhost:3000
+Host: {{hostname}}
 content-type: application/json
 
 {
     "username": "test@test.com",
     "password": "123"
 }
-
+###
+@authToken = {{login.response.body.access_token}}
 ###
 //get signed user
 GET /auth/me HTTP/1.1
 Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6MSwiaWF0IjoxNjE3OTE4MTMzLCJleHAiOjE2MTg1MjI5MzN9.26PQbVDb57ojCS3doze4N85pQ5wdpcHy4Ez6jndTpxs
-
+Authorization: Bearer {{authToken}}
 ###
-
 //USER MODULE
-
 ###
 //list users
 GET /users HTTP/1.1
 Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6MSwiaWF0IjoxNjE3OTE4MzQ5LCJleHAiOjE2MTg1MjMxNDl9.QTT5CEUtUZrKvBWETkmxinMsuqcLDJvYAOgypH9oLFQ
-
+Authorization: Bearer {{authToken}}
 ###
 //create user
 POST /users HTTP/1.1
 Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6MSwiaWF0IjoxNjE3OTE4MzQ5LCJleHAiOjE2MTg1MjMxNDl9.QTT5CEUtUZrKvBWETkmxinMsuqcLDJvYAOgypH9oLFQ
+Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
