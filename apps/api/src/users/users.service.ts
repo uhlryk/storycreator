@@ -14,7 +14,6 @@ export class UsersService {
     console.log(createUserDto);
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     const user = new User();
-    user.email = createUserDto.email;
     user.name = createUserDto.name;
     user.password = hashedPassword;
 
@@ -33,10 +32,10 @@ export class UsersService {
     });
   }
 
-  findOneByEmail(email: string): Promise<User> {
+  findOneByName(name: string): Promise<User> {
     return this.userModel.findOne({
       where: {
-        email,
+        name,
       },
     });
   }

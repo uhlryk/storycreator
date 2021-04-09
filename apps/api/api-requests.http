@@ -9,7 +9,7 @@ Host: {{hostname}}
 content-type: application/json
 
 {
-    "username": "test@test.com",
+    "username": "test",
     "password": "123"
 }
 ###
@@ -34,8 +34,7 @@ Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
-	"email": "test2@test.com",
-	"name": "John Doe2",
+	"name": "test",
 	"password": "123"
 	
 }

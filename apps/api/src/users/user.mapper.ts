@@ -5,7 +5,6 @@ export class UserMapper {
   public static toResponse(user: User): GetSafeUserDto {
     return {
       id: user.id,
-      email: user.email,
       name: user.name,
     };
   }

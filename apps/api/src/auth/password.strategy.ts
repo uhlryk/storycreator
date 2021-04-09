@@ -10,9 +10,9 @@ export class PasswordStrategy extends PassportStrategy(Strategy) {
     super();
   }
 
-  async validate(email, password): Promise<GetSafeUserDto> {
+  async validate(name, password): Promise<GetSafeUserDto> {
     const user: GetSafeUserDto = await this.authService.validateUser(
-      email,
+      name,
       password,
     );
     if (!user) {
