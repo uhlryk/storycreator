@@ -2,18 +2,29 @@
 ###
 //AUTH MODULE
 ###
-//sign in
-# @name login
-POST /auth/login  HTTP/1.1
+//sign up
+POST /auth/signup  HTTP/1.1
 Host: {{hostname}}
 content-type: application/json
 
 {
-    "username": "test",
-    "password": "123"
+    "name": "test2",
+    "password": "test2"
+}
+
+###
+//sign in
+# @name signin
+POST /auth/signin  HTTP/1.1
+Host: {{hostname}}
+content-type: application/json
+
+{
+    "username": "test2",
+    "password": "test2"
 }
 ###
-@authToken = {{login.response.body.access_token}}
+@authToken = {{signin.response.body.access_token}}
 ###
 //get signed user
 GET /auth/me HTTP/1.1

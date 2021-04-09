@@ -26,10 +26,10 @@ export class AuthService {
     return null;
   }
 
-  login(user: GetSafeUserDto): GetJwtDto {
+  async login(user: GetSafeUserDto): Promise<GetJwtDto> {
     const payload: PayloadDto = { name: user.name, id: user.id };
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: await this.jwtService.signAsync(payload),
     };
   }
 }
