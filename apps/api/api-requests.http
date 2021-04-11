@@ -9,8 +9,8 @@ Host: {{hostname}}
 content-type: application/json
 
 {
-    "name": "test2",
-    "password": "test2"
+    "name": "test",
+    "password": "test"
 }
 
 ###
@@ -21,8 +21,8 @@ Host: {{hostname}}
 content-type: application/json
 
 {
-    "username": "test2",
-    "password": "test2"
+    "username": "test",
+    "password": "test"
 }
 ###
 @authToken = {{signin.response.body.access_token}}
@@ -34,7 +34,7 @@ Authorization: Bearer {{authToken}}
 ###
 //USER MODULE
 ###
-@userId=22
+@userId=a7a97e52-609f-4705-8ff6-b53bdb02d85a
 ###
 //list users
 GET /users HTTP/1.1
