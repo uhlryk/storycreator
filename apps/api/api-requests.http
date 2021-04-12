@@ -63,3 +63,32 @@ Content-Type: application/json
 	
 }
 ###
+//NATIONALITY MODULE
+###
+@nationalityId=056674fa-62d4-4fe9-ba06-cc1a665a08b1
+###
+//list nationalities
+GET /nationalities HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+###
+//get nationality
+GET /nationalities/{{nationalityId}} HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+###
+//remove nationality
+DELETE /nationalities/{{nationalityId}} HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+###
+//create nationality
+POST /nationalities HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+	"name": "Polish"
+}
+###

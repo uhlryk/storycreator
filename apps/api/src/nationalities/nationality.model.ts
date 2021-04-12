@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 @Table({
   timestamps: true,
 })
-export class User extends Model<User> {
+export class Nationality extends Model<Nationality> {
   @IsUUID(4)
   @PrimaryKey
   @Column
@@ -21,11 +21,8 @@ export class User extends Model<User> {
   @Column
   name: string;
 
-  @Column
-  password: string;
-
   @BeforeCreate
-  static createUUID(instance: User) {
+  static createUUID(instance: Nationality) {
     instance.id = uuidv4();
   }
 }
