@@ -1,4 +1,4 @@
-import { GetSafeUserDto } from './dto/get-safe-user.dto';
+import { GetSafeUserDto } from './dto/return-safe-user.dto';
 import { User } from './user.model';
 
 export class UserMapper {

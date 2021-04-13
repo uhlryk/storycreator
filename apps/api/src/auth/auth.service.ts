@@ -3,7 +3,7 @@ import { UsersService } from '../users/users.service';
 import { UserMapper } from '../users/user.mapper';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { GetSafeUserDto } from '../users/dto/get-safe-user.dto';
+import { GetSafeUserDto } from '../users/dto/return-safe-user.dto';
 import { GetJwtDto } from './dto/get-jwt.dto';
 import { PayloadDto } from './dto/payload.dto';
 @Injectable()

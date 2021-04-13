@@ -10,7 +10,7 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
 import { UsersService } from './users.service';
-import { GetSafeUserDto } from './dto/get-safe-user.dto';
+import { ReturnSafeUserDto } from './dto/return-safe-user.dto';
 import { UserMapper } from './user.mapper';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
@@ -20,19 +20,21 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  async create(@Body() createUserDto: CreateUserDto): Promise<GetSafeUserDto> {
+  async create(
+    @Body() createUserDto: CreateUserDto,
+  ): Promise<ReturnSafeUserDto> {
     const user = await this.usersService.create(createUserDto);
     return UserMapper.toResponse(user);
   }
 
   @Get()
-  async findAll(): Promise<GetSafeUserDto[]> {
+  async findAll(): Promise<ReturnSafeUserDto[]> {
     const list: User[] = await this.usersService.findAll();
     return list.map((user: User) => UserMapper.toResponse(user));
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<GetSafeUserDto> {
+  async findOne(@Param('id') id: string): Promise<ReturnSafeUserDto> {
     const user = await this.usersService.findOne(id);
     return UserMapper.toResponse(user);
   }
