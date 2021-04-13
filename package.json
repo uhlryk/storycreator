@@ -8,8 +8,6 @@
   "scripts": {
     "start:dev": "npm --prefix apps/api run start:docker"
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

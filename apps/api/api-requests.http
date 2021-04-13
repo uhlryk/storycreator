@@ -9,7 +9,7 @@ Host: {{hostname}}
 content-type: application/json
 
 {
-    "name": "test",
+    "name": "test2",
     "password": "test"
 }
 
@@ -34,7 +34,7 @@ Authorization: Bearer {{authToken}}
 ###
 //USER MODULE
 ###
-@userId=a7a97e52-609f-4705-8ff6-b53bdb02d85a
+@userId=02602098-51e6-475b-99d9-2bf8ba7abb2d
 ###
 //list users
 GET /users HTTP/1.1

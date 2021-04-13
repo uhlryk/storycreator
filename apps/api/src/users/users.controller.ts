@@ -6,6 +6,8 @@ import {
   Param,
   Post,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
@@ -20,6 +22,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
+  @UsePipes(ValidationPipe)
   async create(
     @Body() createUserDto: CreateUserDto,
   ): Promise<ReturnSafeUserDto> {

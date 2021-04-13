@@ -3,7 +3,7 @@ import { UsersService } from '../users/users.service';
 import { UserMapper } from '../users/user.mapper';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { GetSafeUserDto } from '../users/dto/return-safe-user.dto';
+import { ReturnSafeUserDto } from '../users/dto/return-safe-user.dto';
 import { GetJwtDto } from './dto/get-jwt.dto';
 import { PayloadDto } from './dto/payload.dto';
 @Injectable()
@@ -13,7 +13,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(name, password): Promise<GetSafeUserDto | null> {
+  async validateUser(name, password): Promise<ReturnSafeUserDto | null> {
     const user = await this.usersService.findOneByName(name);
 
     if (user) {
@@ -26,7 +26,7 @@ export class AuthService {
     return null;
   }
 
-  async login(user: GetSafeUserDto): Promise<GetJwtDto> {
+  async login(user: ReturnSafeUserDto): Promise<GetJwtDto> {
     const payload: PayloadDto = { name: user.name, id: user.id };
     return {
       access_token: await this.jwtService.signAsync(payload),
