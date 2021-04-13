@@ -10,7 +10,7 @@ import {
 import { NationalitiesService } from './nationalities.service';
 import { CreateNationalityDto } from './dto/create-nationality.dto';
 import { NationalityDto } from './dto/nationality.dto';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { NationalityMapper } from './nationality.mapper';
 import { Nationality } from './nationality.model';
 @Controller('nationalities')

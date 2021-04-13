@@ -1,4 +1,5 @@
-import { NationalitiesModule } from './nationalities/nationalities.module';
+import { NamesModule } from './characters/names/names.module';
+import { NationalitiesModule } from './meta-characters/nationalities/nationalities.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
+        NamesModule, 
     NationalitiesModule,
     ConfigModule.forRoot(),
     DatabaseModule,
