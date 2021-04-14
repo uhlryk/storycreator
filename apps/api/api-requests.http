@@ -63,9 +63,9 @@ Content-Type: application/json
 	
 }
 ###
-//NATIONALITY MODULE
+//ADMIN/NATIONALITY MODULE
 ###
-@nationalityId=056674fa-62d4-4fe9-ba06-cc1a665a08b1
+@nationalityId=5dd75fef-e2f5-4e2f-99f8-7565e7b9b294
 ###
 //list nationalities
 GET /nationalities HTTP/1.1
@@ -90,5 +90,38 @@ Content-Type: application/json
 
 {
 	"name": "Arabic"
+}
+###
+//ADMIN/NAME MODULE
+###
+@nameId=712f3442-64b0-48b3-8d7c-c2b3c1490878
+###
+//list names
+GET /admin/names HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+###
+//get name
+GET /admin/names/{{nameId}} HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+###
+//remove name
+DELETE /admin/names/{{nameId}} HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+###
+//create name
+POST /admin/names HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+	"name": "Adam",
+    "gender": "MALE",
+    "type": "FIRST_NAME",
+    "nationalityId": "{{nationalityId}}"
+
 }
 ###

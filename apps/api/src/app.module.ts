@@ -1,3 +1,4 @@
+import { NamesModule as MetaNamesModule } from './meta-characters/names/names.module';
 import { NamesModule } from './characters/names/names.module';
 import { NationalitiesModule } from './meta-characters/nationalities/nationalities.module';
 import { Module } from '@nestjs/common';
@@ -11,7 +12,8 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-        NamesModule, 
+    NamesModule,
+    MetaNamesModule,
     NationalitiesModule,
     ConfigModule.forRoot(),
     DatabaseModule,

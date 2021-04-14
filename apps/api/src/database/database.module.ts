@@ -3,6 +3,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from '../users/user.model';
 import { Nationality } from '../meta-characters/nationalities/nationality.model';
+import { Name } from '../meta-characters/names/name.model';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { Nationality } from '../meta-characters/nationalities/nationality.model'
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        models: [User, Nationality],
+        models: [User, Nationality, Name],
         autoLoadModels: true,
       }),
       inject: [ConfigService],
