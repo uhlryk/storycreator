@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Post, Req, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  UseGuards,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { PasswordAuthGuard } from './password-auth.guard';
 import { ReturnSafeUserDto } from '../users/dto/return-safe-user.dto';

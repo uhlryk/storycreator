@@ -25,6 +25,13 @@ http://localhost:8080/
 $ npm run start:prod
 ```
 
+## Running the app in debug mode:
+
+```bash
+$ npm run start:docker:debug
+```
+in vscode run and debug `attach to node`
+
 ## Test
 
 ```bash
